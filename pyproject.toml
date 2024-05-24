@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "ruo-rag-langserver"
+version = "0.1.0"
+description = ""
+authors = ["Ruo Lee <comsa33@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "app" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+uvicorn = "^0.23.2"
+langserve = {extras = ["server"], version = ">=0.0.30"}
+pydantic = "<2"
+gpt-recruit-rag = {path = "packages/gpt-recruit-rag", develop = true}
+patent-rag = {path = "packages/patent-rag", develop = true}
+elastic-query-generator = {path = "packages/elastic-query-generator", develop = true}
+
+[tool.poetry.group.dev.dependencies]
+langchain-cli = ">=0.0.15"
+ipykernel = "^6.29.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
